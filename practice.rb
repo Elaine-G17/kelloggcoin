@@ -27,3 +27,19 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+user_name = blockchain["to_user"].to_s
+puts user_name
+
+index=0
+
+loop do
+  if index == user_name.size
+    break
+  end
+
+name = user_name[index]
+wallet="#{name} KelloggCoin balance is"
+puts wallet
+index = index + 1
+end
