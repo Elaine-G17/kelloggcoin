@@ -27,19 +27,49 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+ben_wallet = 0
+brian_wallet = 0
+evan_wallet= 0
+anthony_wallet= 0
 
-user_name = blockchain["to_user"].to_s
-puts user_name
-
-index=0
-
-loop do
-  if index == user_name.size
-    break
-  end
-
-name = user_name[index]
-wallet="#{name} KelloggCoin balance is"
-puts wallet
-index = index + 1
+for transaction in blockchain
+if transaction["to_user"] == "ben"
+  ben_wallet = ben_wallet ++ transaction["amount"]
+elsif transaction["to_user"] == "brian"
+  brian_wallet = brian_wallet ++ transaction["amount"]
+elsif transaction["to_user"] == "evan"
+  evan_wallet = evan_wallet ++ transaction["amount"]
+elsif transaction["to_user"] == "anthony"
+  anthony_wallet = anthony_wallet ++ transaction["amount"]
 end
+
+if transaction["from_user"] == "ben"
+  ben_wallet = ben_wallet - transaction["amount"]
+elsif transaction["from_user"] == "brian"
+  brian_wallet = brian_wallet -- transaction["amount"]
+elsif transaction["from_user"] == "evan"
+  evans_wallet = evan_wallet -- transaction["amount"]
+elsif transaction["from_user"] == "anthony"
+  anthony_wallet = anthony_wallet -- transaction["amount"]
+end
+end
+
+puts "Ben's KelloggCoin balance is #{ben_wallet}."
+puts "Brian's KelloggCoin balance is #{brian_wallet}."
+puts "Evan's KelloggCoin balance is #{evan_wallet}."
+puts "Anthony's KelloggCoin balance is #{anthony_wallet}."
+
+
+# user_name = ["ben", "brian", "evan", "anthony"]
+# user_balance= [ben_wallet, brian_wallet, evan_wallet, anthony_wallet]
+
+# index=0
+
+# loop do
+  # if index == user_name.size
+    # break
+  # end
+
+# name = user_name[index]
+# balance = user_balance[index]
+# wallet="#{name}'s KelloggCoin balance is #{balance}"
